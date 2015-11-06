@@ -1,0 +1,5 @@
+---
+# vars file for bamboo
+
+bamboo_catalina: /usr/share/bamboo
+bamboo_home: /var/lib/bamboo

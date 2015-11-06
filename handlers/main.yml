@@ -1,0 +1,5 @@
+---
+# handlers file for bamboo
+
+- name: restart bamboo
+  service: name=bamboo state=restarted
