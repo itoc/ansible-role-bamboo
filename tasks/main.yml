@@ -8,6 +8,7 @@
     home={{ bamboo_home }}
     system=yes
     shell=/bin/bash
+  notify: restart bamboo
   tags: bamboo
 
 - name: prepare files
@@ -19,6 +20,7 @@
     state={{ item.state }}
   with_items:
     - { path: "{{ bamboo_catalina }}", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: '0755', state: 'directory' }
+  notify: restart bamboo
   tags: bamboo
 
 - name: download package
@@ -26,12 +28,14 @@
     url={{ bamboo_url }}
     dest={{ bamboo_archive }}
     sha256sum={{ bamboo_sha256 }}
+  notify: restart bamboo
   tags: bamboo
 
 - name: unarchive package
   shell: tar zxvf {{ bamboo_archive }} -C {{ bamboo_catalina }} --strip-components=1; chown -Rf {{ bamboo_user }}:{{ bamboo_user }} {{ bamboo_catalina }}
   args:
     creates: "{{ bamboo_catalina }}/bin/start-bamboo.sh"
+  notify: restart bamboo
   tags: bamboo
 
 - name: copy templates
@@ -45,6 +49,7 @@
     - { template: 'etc/init.d/bamboo', owner: 'root', group: 'root', mode: '0755' }
     - { template: 'usr/share/bamboo/bin/setenv.sh', owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: '0644' }
     - { template: 'usr/share/bamboo/conf/server.xml', owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: '0644' }
+  notify: restart bamboo
   tags: bamboo
 
 - name: enable service
