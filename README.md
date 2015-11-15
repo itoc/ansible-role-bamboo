@@ -1,56 +1,139 @@
-Bamboo
-======
+Ansible Role for Bamboo
+=======================
 
-[![Build
-Status](https://travis-ci.org/pantarei/ansible-role-bamboo.svg?branch=master)](https://travis-ci.org/pantarei/ansible-role-bamboo)
-[![GitHub
-tag](https://img.shields.io/github/tag/pantarei/ansible-role-bamboo.svg)](https://github.com/pantarei/ansible-role-bamboo)
-[![GitHub
-license](https://img.shields.io/github/license/pantarei/ansible-role-bamboo.svg)](https://github.com/pantarei/ansible-role-bamboo)
+[![Build Status](https://travis-ci.org/pantarei/ansible-role-bamboo.svg?branch=master)](https://travis-ci.org/pantarei/ansible-role-bamboo)
+[![GitHub tag](https://img.shields.io/github/tag/pantarei/ansible-role-bamboo.svg)](https://github.com/pantarei/ansible-role-bamboo)
+[![GitHub license](https://img.shields.io/github/license/pantarei/ansible-role-bamboo.svg)](https://github.com/pantarei/ansible-role-bamboo/blob/master/LICENSE)
+[![Ansible Role](https://img.shields.io/ansible/role/5984.svg)](https://galaxy.ansible.com/detail#/role/5984)
 
 Ansible Role for Bamboo Installation.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role
-should be mentioned here. For instance, if the role uses the EC2 module,
-it may be a good idea to mention in this section that the boto package
-is required.
+This role require Ansible 1.9 or higher.
+
+This role was designed for Ubuntu Server 14.04 LTS.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here,
-including any variables that are in defaults/main.yml, vars/main.yml,
-and any variables that can/should be set via parameters to the role. Any
-variables that are read from other roles and/or the global scope (ie.
-hostvars, group vars, etc.) should be mentioned here as well.
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">parameter</th>
+<th align="left">required</th>
+<th align="left">default</th>
+<th align="left">choices</th>
+<th align="left">comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">bamboo_archive</td>
+<td align="left">yes</td>
+<td align="left">/tmp/atlassian-bamboo-5.9.7.tar.gz</td>
+<td align="left"></td>
+<td align="left">Download archive filename for cache during (re)install.</td>
+</tr>
+<tr class="even">
+<td align="left">bamboo_catalina</td>
+<td align="left">yes</td>
+<td align="left">/usr/share/bamboo</td>
+<td align="left"></td>
+<td align="left">Location for the Bamboo installation directory.</td>
+</tr>
+<tr class="odd">
+<td align="left">bamboo_home</td>
+<td align="left">yes</td>
+<td align="left">/var/lib/bamboo</td>
+<td align="left"></td>
+<td align="left">Location for the Bamboo home directory.</td>
+</tr>
+<tr class="even">
+<td align="left">bamboo_pass</td>
+<td align="left">yes</td>
+<td align="left">yav0nooR</td>
+<td align="left"></td>
+<td align="left">Password for Bamboo system user.</td>
+</tr>
+<tr class="odd">
+<td align="left">bamboo_proxy_name</td>
+<td align="left">no</td>
+<td align="left"><code>null</code></td>
+<td align="left"></td>
+<td align="left">Pass value as <code>proxyName</code> to <a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/templates/usr/share/bamboo/conf/server.xml.j2">template</a>.</td>
+</tr>
+<tr class="even">
+<td align="left">bamboo_scheme</td>
+<td align="left">no</td>
+<td align="left"><code>null</code></td>
+<td align="left"><ul>
+<li><code>null</code></li>
+<li>http</li>
+<li>https</li>
+</ul></td>
+<td align="left">Install Bamboo in standalone mode if <code>null</code>, or integrating with Apache using HTTP if <code>http</code>, or integrating with Apache using HTTPS if <code>https</code>.</td>
+</tr>
+<tr class="odd">
+<td align="left">bamboo_sha256</td>
+<td align="left">yes</td>
+<td align="left">4efd7ed85e1b0886ff262ed388aa9049651b2bccffa60bdc59db73fb1609982f</td>
+<td align="left"></td>
+<td align="left">Download archive sha256 checksum for cache during (re)install.</td>
+</tr>
+<tr class="even">
+<td align="left">bamboo_upgrade</td>
+<td align="left">no</td>
+<td align="left"><code>false</code></td>
+<td align="left"><ul>
+<li><code>true</code></li>
+<li><code>false</code></li>
+</ul></td>
+<td align="left">If <code>true</code>, trigger upgrade by stop existing Bamboo service, purge existing Bamboo installation direcoty before normal tasks.</td>
+</tr>
+<tr class="odd">
+<td align="left">bamboo_url</td>
+<td align="left">yes</td>
+<td align="left">https://downloads.atlassian.com/software/bamboo/downloads/atlassian-bamboo-5.9.7.tar.gz</td>
+<td align="left"></td>
+<td align="left">URL for download archive.</td>
+</tr>
+<tr class="even">
+<td align="left">bamboo_user</td>
+<td align="left">yes</td>
+<td align="left">bamboo</td>
+<td align="left"></td>
+<td align="left">Username for Bamboo system user.</td>
+</tr>
+</tbody>
+</table>
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details
-in regards to parameters that may need to be set for other roles, or
-variables that are used from other roles.
+-   [hswong3i.java](https://galaxy.ansible.com/detail#/role/5971)
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with
-variables passed in as parameters) is always nice for users too:
-
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+        - { role: hswong3i.java }
+        - { role: hswong3i.bamboo, bamboo_user: 'bamboo', bamboo_pass: 'yav0nooR', bamboo_upgrade: 'false' }
 
 License
 -------
 
--   Code released under
-    [MIT](https://github.com/hswong3i/ansible-role-bamboo/blob/master/LICENSE)
--   Docs released under [CC BY
-    4.0](http://creativecommons.org/licenses/by/4.0/)
+-   Code released under [MIT](https://github.com/hswong3i/ansible-role-bamboo/blob/master/LICENSE)
+-   Docs released under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)
 
 Author Information
 ------------------
