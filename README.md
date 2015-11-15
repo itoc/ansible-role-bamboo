@@ -6,7 +6,7 @@ Ansible Role for Bamboo
 [![GitHub license](https://img.shields.io/github/license/pantarei/ansible-role-bamboo.svg)](https://github.com/pantarei/ansible-role-bamboo/blob/master/LICENSE)
 [![Ansible Role](https://img.shields.io/ansible/role/5984.svg)](https://galaxy.ansible.com/detail#/role/5984)
 
-Ansible Role for Bamboo Installation.
+Ansible Role for Atlassian Bamboo Installation.
 
 Requirements
 ------------
