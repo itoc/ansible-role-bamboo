@@ -3,6 +3,7 @@
 
 bamboo_archive: /tmp/atlassian-bamboo-5.9.7.tar.gz
 bamboo_catalina: /usr/share/bamboo
+bamboo_connector_port: 8085
 bamboo_home: /var/lib/bamboo
 bamboo_jvm_maximum_memory: 1024m
 bamboo_jvm_minimum_memory: 512m
@@ -10,6 +11,7 @@ bamboo_jvm_support_recommended_args: -Datlassian.plugins.enable.wait=300
 bamboo_pass: yav0nooR
 bamboo_proxy_name:
 bamboo_scheme:
+bamboo_server_port: 8007
 bamboo_sha256: 4efd7ed85e1b0886ff262ed388aa9049651b2bccffa60bdc59db73fb1609982f
 bamboo_upgrade: false
 bamboo_url: https://downloads.atlassian.com/software/bamboo/downloads/atlassian-bamboo-5.9.7.tar.gz
