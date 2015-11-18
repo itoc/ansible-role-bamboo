@@ -51,11 +51,39 @@ Role Variables
 <td align="left">Location for the Bamboo installation directory.</td>
 </tr>
 <tr class="odd">
+<td align="left">bamboo_connector_port</td>
+<td align="left">yes</td>
+<td align="left">8085</td>
+<td align="left"></td>
+<td align="left">Bamboo Apache Tomcat connector port.</td>
+</tr>
+<tr class="even">
 <td align="left">bamboo_home</td>
 <td align="left">yes</td>
 <td align="left">/var/lib/bamboo</td>
 <td align="left"></td>
 <td align="left">Location for the Bamboo home directory.</td>
+</tr>
+<tr class="odd">
+<td align="left">bamboo_jvm_maximum_memory</td>
+<td align="left">yes</td>
+<td align="left">1024m</td>
+<td align="left"></td>
+<td align="left">Bamboo JVM maximum memory usage.</td>
+</tr>
+<tr class="even">
+<td align="left">bamboo_jvm_minimum_memory</td>
+<td align="left">yes</td>
+<td align="left">512m</td>
+<td align="left"></td>
+<td align="left">Bamboo JVM minimum memory usage.</td>
+</tr>
+<tr class="odd">
+<td align="left">bamboo_jvm_support_recommended_args</td>
+<td align="left">no</td>
+<td align="left">-Datlassian.plugins.enable.wait=300</td>
+<td align="left"></td>
+<td align="left">Atlassian Support recommended JVM arguments.</td>
 </tr>
 <tr class="even">
 <td align="left">bamboo_pass</td>
@@ -83,13 +111,20 @@ Role Variables
 <td align="left">Install Bamboo in standalone mode if <code>null</code>, or integrating with Apache using HTTP if <code>http</code>, or integrating with Apache using HTTPS if <code>https</code>.</td>
 </tr>
 <tr class="odd">
+<td align="left">bamboo_server_port</td>
+<td align="left">yes</td>
+<td align="left">8007</td>
+<td align="left"></td>
+<td align="left">Bamboo Apache Tomcat server port.</td>
+</tr>
+<tr class="even">
 <td align="left">bamboo_sha256</td>
 <td align="left">yes</td>
 <td align="left">4efd7ed85e1b0886ff262ed388aa9049651b2bccffa60bdc59db73fb1609982f</td>
 <td align="left"></td>
 <td align="left">Download archive sha256 checksum for cache during (re)install.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">bamboo_upgrade</td>
 <td align="left">no</td>
 <td align="left"><code>false</code></td>
@@ -99,14 +134,14 @@ Role Variables
 </ul></td>
 <td align="left">If <code>true</code>, trigger upgrade by stop existing Bamboo service, purge existing Bamboo installation direcoty before normal tasks.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">bamboo_url</td>
 <td align="left">yes</td>
 <td align="left">https://downloads.atlassian.com/software/bamboo/downloads/atlassian-bamboo-5.9.7.tar.gz</td>
 <td align="left"></td>
 <td align="left">URL for download archive.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">bamboo_user</td>
 <td align="left">yes</td>
 <td align="left">bamboo</td>
