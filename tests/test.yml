@@ -1,5 +1,5 @@
 ---
-# test file for bamboo
+# test file for hswong3i.bamboo
 
 - hosts: localhost
   remote_user: root

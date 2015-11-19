@@ -1,5 +1,5 @@
 ---
-# defaults file for bamboo
+# defaults file for hswong3i.bamboo
 
 bamboo_archive: /tmp/atlassian-bamboo-5.9.7.tar.gz
 bamboo_catalina: /usr/share/bamboo
