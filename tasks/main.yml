@@ -5,7 +5,7 @@
   service: name=bamboo state=stopped
   when: bamboo_upgrade == true
   notify: restart bamboo
-  tags: bamboo
+  tags: hswong3i.bamboo
 
 - name: remove legacy binary if upgrade
   file:
@@ -18,7 +18,7 @@
     - { path: "{{ bamboo_catalina }}", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: '0755', state: 'absent' }
   when: bamboo_upgrade == true
   notify: restart bamboo
-  tags: bamboo
+  tags: hswong3i.bamboo
 
 - name: create system user
   user:
@@ -28,7 +28,7 @@
     system=yes
     shell=/bin/bash
   notify: restart bamboo
-  tags: bamboo
+  tags: hswong3i.bamboo
 
 - name: prepare files
   file:
@@ -40,7 +40,7 @@
   with_items:
     - { path: "{{ bamboo_catalina }}", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: '0755', state: 'directory' }
   notify: restart bamboo
-  tags: bamboo
+  tags: hswong3i.bamboo
 
 - name: download package
   get_url:
@@ -48,14 +48,14 @@
     dest={{ bamboo_archive }}
     sha256sum={{ bamboo_sha256 }}
   notify: restart bamboo
-  tags: bamboo
+  tags: hswong3i.bamboo
 
 - name: unarchive package
   shell: tar zxvf {{ bamboo_archive }} -C {{ bamboo_catalina }} --strip-components=1; chown -Rf {{ bamboo_user }}:{{ bamboo_user }} {{ bamboo_catalina }}
   args:
     creates: "{{ bamboo_catalina }}/bin/start-bamboo.sh"
   notify: restart bamboo
-  tags: bamboo
+  tags: hswong3i.bamboo
 
 - name: copy templates
   template:
@@ -69,9 +69,9 @@
     - { src: 'usr/share/bamboo/bin/setenv.sh.j2', dest: "{{ bamboo_catalina }}/bin/setenv.sh", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: '0644' }
     - { src: 'usr/share/bamboo/conf/server.xml.j2', dest: "{{ bamboo_catalina }}/conf/server.xml", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: '0644' }
   notify: restart bamboo
-  tags: bamboo
+  tags: hswong3i.bamboo
 
 - name: enable service
   service: name=bamboo enabled=yes
   notify: restart bamboo
-  tags: bamboo
+  tags: hswong3i.bamboo
