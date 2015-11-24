@@ -75,3 +75,14 @@
   service: name=bamboo enabled=yes
   notify: restart bamboo
   tags: hswong3i.bamboo
+
+- name: enable incomming connection
+  ufw:
+    to_port={{ item }}
+    proto=tcp
+    rule=allow
+  with_items:
+    - "{{ bamboo_connector_port }}"
+    - "{{ bamboo_server_port }}"
+  notify: restart bamboo
+  tags: hswong3i.bamboo
