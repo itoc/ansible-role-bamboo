@@ -81,7 +81,7 @@ Role Variables
 <tr class="odd">
 <td align="left">bamboo_jvm_support_recommended_args</td>
 <td align="left">no</td>
-<td align="left">-Datlassian.plugins.enable.wait=300</td>
+<td align="left"><a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td align="left"></td>
 <td align="left">Atlassian Support recommended JVM arguments.</td>
 </tr>
