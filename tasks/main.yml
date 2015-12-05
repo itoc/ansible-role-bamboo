@@ -20,12 +20,20 @@
   notify: restart bamboo
   tags: hswong3i.bamboo
 
-- name: create system user
+- name: apt-get install
+  apt:
+    name="{{ item }}"
+    state=latest
+  with_items:
+    - ufw
+  notify: restart bamboo
+  tags: hswong3i.bamboo
+
+- name: create user
   user:
     name={{ bamboo_user }}
     password={{ bamboo_pass }}
     home={{ bamboo_home }}
-    system=yes
     shell=/bin/bash
   notify: restart bamboo
   tags: hswong3i.bamboo
