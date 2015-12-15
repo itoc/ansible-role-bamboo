@@ -4,6 +4,7 @@
 bamboo_archive: /tmp/atlassian-bamboo-5.9.7.tar.gz
 bamboo_catalina: /usr/share/bamboo
 bamboo_connector_port: 8085
+bamboo_hash_salt: 7a19759dc774f9accbe51540e80e155f31290517417fd6960a27f891877dd272
 bamboo_home: /var/lib/bamboo
 bamboo_jvm_maximum_memory: 1024m
 bamboo_jvm_minimum_memory: 512m
