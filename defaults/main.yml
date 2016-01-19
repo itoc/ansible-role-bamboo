@@ -1,7 +1,7 @@
 ---
 # defaults file for hswong3i.bamboo
 
-bamboo_archive: /tmp/atlassian-bamboo-5.9.9.tar.gz
+bamboo_archive: /tmp/atlassian-bamboo-5.10.0.tar.gz
 bamboo_catalina: /usr/share/bamboo
 bamboo_connector_port: 8085
 bamboo_context_path: ~
@@ -14,7 +14,7 @@ bamboo_pass: yav0nooR
 bamboo_proxy_name: ~
 bamboo_scheme: ~
 bamboo_server_port: 8007
-bamboo_sha256: 7a46fce78e408f453f41ef2ce921b6aa8ae45167dacc6862022d528a2bf6b093
+bamboo_sha256: 26d3f303d5884056dc5196f42ac8b8f005828d71bbaa342dffbe5d26af9f05b1
 bamboo_upgrade: false
-bamboo_url: https://downloads.atlassian.com/software/bamboo/downloads/atlassian-bamboo-5.9.9.tar.gz
+bamboo_url: https://downloads.atlassian.com/software/bamboo/downloads/atlassian-bamboo-5.10.0.tar.gz
 bamboo_user: bamboo
