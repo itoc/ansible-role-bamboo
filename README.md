@@ -51,69 +51,76 @@ Role Variables
 <td align="left">Location for the Bamboo installation directory.</td>
 </tr>
 <tr class="odd">
+<td align="left">bamboo_checksum</td>
+<td align="left">yes</td>
+<td align="left"><a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td align="left"></td>
+<td align="left">Download archive sha256 checksum for cache during (re)install.</td>
+</tr>
+<tr class="even">
 <td align="left">bamboo_connector_port</td>
 <td align="left">yes</td>
 <td align="left">8085</td>
 <td align="left"></td>
 <td align="left">Bamboo Apache Tomcat connector port.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">bamboo_context_path</td>
 <td align="left">no</td>
 <td align="left"><code>null</code></td>
 <td align="left"></td>
 <td align="left">Pass value as <code>path</code> to <a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/templates/usr/share/bamboo/conf/server.xml.j2">template</a>.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">bamboo_hash_salt</td>
 <td align="left">yes</td>
 <td align="left"><a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td align="left"></td>
 <td align="left">Specific password hash salt for sha512.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">bamboo_home</td>
 <td align="left">yes</td>
 <td align="left">/var/lib/bamboo</td>
 <td align="left"></td>
 <td align="left">Location for the Bamboo home directory.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">bamboo_jvm_maximum_memory</td>
 <td align="left">yes</td>
 <td align="left">1024m</td>
 <td align="left"></td>
 <td align="left">Bamboo JVM maximum memory usage.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">bamboo_jvm_minimum_memory</td>
 <td align="left">yes</td>
 <td align="left">512m</td>
 <td align="left"></td>
 <td align="left">Bamboo JVM minimum memory usage.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">bamboo_jvm_support_recommended_args</td>
 <td align="left">no</td>
 <td align="left"><a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td align="left"></td>
 <td align="left">Atlassian Support recommended JVM arguments.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">bamboo_pass</td>
 <td align="left">yes</td>
 <td align="left">yav0nooR</td>
 <td align="left"></td>
 <td align="left">Password for Bamboo system user.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">bamboo_proxy_name</td>
 <td align="left">no</td>
 <td align="left"><code>null</code></td>
 <td align="left"></td>
 <td align="left">Pass value as <code>proxyName</code> to <a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/templates/usr/share/bamboo/conf/server.xml.j2">template</a>.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">bamboo_scheme</td>
 <td align="left">no</td>
 <td align="left"><code>null</code></td>
@@ -124,19 +131,12 @@ Role Variables
 </ul></td>
 <td align="left">Install Bamboo in standalone mode if <code>null</code>, or integrating with Apache using HTTP if <code>http</code>, or integrating with Apache using HTTPS if <code>https</code>.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">bamboo_server_port</td>
 <td align="left">yes</td>
 <td align="left">8007</td>
 <td align="left"></td>
 <td align="left">Bamboo Apache Tomcat server port.</td>
-</tr>
-<tr class="even">
-<td align="left">bamboo_sha256</td>
-<td align="left">yes</td>
-<td align="left"><a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
-<td align="left"></td>
-<td align="left">Download archive sha256 checksum for cache during (re)install.</td>
 </tr>
 <tr class="odd">
 <td align="left">bamboo_url</td>

@@ -34,13 +34,12 @@
 - name: download package
   get_url:
     url={{ bamboo_url }}
-    dest={{ bamboo_archive }}
-    sha256sum={{ bamboo_sha256 }}
-  notify: restart bamboo
+    dest="/tmp/{{ bamboo_archive }}"
+    checksum={{ bamboo_checksum }}
   tags: hswong3i.bamboo
 
 - name: unarchive package
-  shell: tar zxvf {{ bamboo_archive }} -C {{ bamboo_catalina }} --strip-components=1; chown -Rf {{ bamboo_user }}:{{ bamboo_user }} {{ bamboo_catalina }}
+  shell: tar zxvf /tmp/{{ bamboo_archive }} -C {{ bamboo_catalina }} --strip-components=1; chown -Rf {{ bamboo_user }}:{{ bamboo_user }} {{ bamboo_catalina }}
   args:
     creates: "{{ bamboo_catalina }}/bin/start-bamboo.sh"
   notify: restart bamboo
