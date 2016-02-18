@@ -139,23 +139,13 @@ Role Variables
 <td align="left">Download archive sha256 checksum for cache during (re)install.</td>
 </tr>
 <tr class="odd">
-<td align="left">bamboo_upgrade</td>
-<td align="left">no</td>
-<td align="left"><code>false</code></td>
-<td align="left"><ul>
-<li><code>true</code></li>
-<li><code>false</code></li>
-</ul></td>
-<td align="left">If <code>true</code>, trigger upgrade by stop existing Bamboo service, purge existing Bamboo installation direcoty before normal tasks.</td>
-</tr>
-<tr class="even">
 <td align="left">bamboo_url</td>
 <td align="left">yes</td>
 <td align="left"><a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td align="left"></td>
 <td align="left">URL for download archive.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">bamboo_user</td>
 <td align="left">yes</td>
 <td align="left">bamboo</td>
@@ -175,7 +165,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-        - { role: hswong3i.bamboo, bamboo_user: 'bamboo', bamboo_pass: 'yav0nooR', bamboo_upgrade: 'false' }
+        - { role: hswong3i.bamboo }
 
 License
 -------

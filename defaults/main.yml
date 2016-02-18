@@ -15,6 +15,5 @@ bamboo_proxy_name: ~
 bamboo_scheme: ~
 bamboo_server_port: 8007
 bamboo_sha256: a52e2590d4f6148c90a45daa6d5c7f0eb7db5192a65941ef26dba354b6867e1e
-bamboo_upgrade: false
 bamboo_url: https://downloads.atlassian.com/software/bamboo/downloads/atlassian-bamboo-5.10.1.1.tar.gz
 bamboo_user: bamboo
