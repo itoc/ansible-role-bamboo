@@ -1,25 +1,6 @@
 ---
 # tasks file for hswong3i.bamboo
 
-- name: stop service if upgrade
-  service: name=bamboo state=stopped
-  when: bamboo_upgrade == true
-  notify: restart bamboo
-  tags: hswong3i.bamboo
-
-- name: remove legacy binary if upgrade
-  file:
-    path={{ item.path }}
-    owner={{ item.owner }}
-    group={{ item.group }}
-    mode={{ item.mode }}
-    state={{ item.state }}
-  with_items:
-    - { path: "{{ bamboo_catalina }}", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: '0755', state: 'absent' }
-  when: bamboo_upgrade == true
-  notify: restart bamboo
-  tags: hswong3i.bamboo
-
 - name: apt-get install
   apt:
     name={{ item.name }}
@@ -53,13 +34,12 @@
 - name: download package
   get_url:
     url={{ bamboo_url }}
-    dest={{ bamboo_archive }}
-    sha256sum={{ bamboo_sha256 }}
-  notify: restart bamboo
+    dest="/tmp/{{ bamboo_archive }}"
+    checksum={{ bamboo_checksum }}
   tags: hswong3i.bamboo
 
 - name: unarchive package
-  shell: tar zxvf {{ bamboo_archive }} -C {{ bamboo_catalina }} --strip-components=1; chown -Rf {{ bamboo_user }}:{{ bamboo_user }} {{ bamboo_catalina }}
+  shell: tar zxvf /tmp/{{ bamboo_archive }} -C {{ bamboo_catalina }} --strip-components=1; chown -Rf {{ bamboo_user }}:{{ bamboo_user }} {{ bamboo_catalina }}
   args:
     creates: "{{ bamboo_catalina }}/bin/start-bamboo.sh"
   notify: restart bamboo
