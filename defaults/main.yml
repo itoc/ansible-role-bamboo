@@ -1,9 +1,9 @@
 ---
 # defaults file for hswong3i.bamboo
 
-bamboo_archive: atlassian-bamboo-5.10.2.tar.gz
+bamboo_archive: atlassian-bamboo-5.10.3.tar.gz
 bamboo_catalina: /usr/share/bamboo
-bamboo_checksum: "sha256:9d7b3853a2d91f529f8153a2fd57da903e9c1a2bfd91d304428b6598c9af5937"
+bamboo_checksum: "sha256:da6326d49dd5234319518f4b55fdfe521918931971c48bd43a48d6f6fb2717a6"
 bamboo_connector_port: 8085
 bamboo_context_path: ~
 bamboo_hash_salt: iHujah8chaeTh6oh
