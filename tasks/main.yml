@@ -10,11 +10,20 @@
   notify: restart bamboo
   tags: hswong3i.bamboo
 
+- name: create group
+  group:
+    name: "{{ bamboo_user }}"
+    gid: "{{ bamboo_gid | default(None) or omit }}"
+  notify: restart bamboo
+  tags: hswong3i.bamboo
+
 - name: create user
   user:
     name: "{{ bamboo_user }}"
     password: "{{ bamboo_pass | password_hash('sha512', bamboo_hash_salt) }}"
     home: "{{ bamboo_home }}"
+    group: "{{ bamboo_user }}"
+    uid: "{{ bamboo_uid | default(None) or omit }}"
     shell: "/bin/bash"
   notify: restart bamboo
   tags: hswong3i.bamboo
