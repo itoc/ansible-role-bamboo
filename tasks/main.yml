@@ -72,8 +72,8 @@
 
 - name: enable service
   service:
-    name: bamboo
-    enabled: yes
+    name: "bamboo"
+    enabled: "yes"
   notify: restart bamboo
   tags: hswong3i.bamboo
 
