@@ -3,43 +3,45 @@
 
 - name: apt-get install
   apt:
-    name="{{ item.name }}"
-    state="{{ item.state }}"
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
   with_items:
-    - { state: 'latest', name: 'ufw' }
+    - { state: "latest", name: "ufw" }
   notify: restart bamboo
   tags: hswong3i.bamboo
 
 - name: create user
   user:
-    name="{{ bamboo_user }}"
-    password="{{ bamboo_pass | password_hash('sha512', bamboo_hash_salt) }}"
-    home="{{ bamboo_home }}"
-    shell=/bin/bash
+    name: "{{ bamboo_user }}"
+    password: "{{ bamboo_pass | password_hash('sha512', bamboo_hash_salt) }}"
+    home: "{{ bamboo_home }}"
+    shell: "/bin/bash"
   notify: restart bamboo
   tags: hswong3i.bamboo
 
 - name: prepare files
   file:
-    path="{{ item.path }}"
-    owner="{{ item.owner }}"
-    group="{{ item.group }}"
-    mode="{{ item.mode }}"
-    state="{{ item.state }}"
+    path: "{{ item.path }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+    state: "{{ item.state }}"
   with_items:
-    - { path: "{{ bamboo_catalina }}", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: '0755', state: 'directory' }
+    - { path: "{{ bamboo_catalina }}", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: "0755", state: "directory" }
   notify: restart bamboo
   tags: hswong3i.bamboo
 
 - name: download package
   get_url:
-    url="{{ bamboo_url }}"
-    dest="/tmp/{{ bamboo_archive }}"
-    checksum="{{ bamboo_checksum }}"
+    url: "{{ bamboo_url }}"
+    dest: "/tmp/{{ bamboo_archive }}"
+    checksum: "{{ bamboo_checksum }}"
   tags: hswong3i.bamboo
 
 - name: unarchive package
-  shell: tar zxvf /tmp/{{ bamboo_archive }} -C {{ bamboo_catalina }} --strip-components=1; chown -Rf {{ bamboo_user }}:{{ bamboo_user }} {{ bamboo_catalina }}
+  shell: |
+    tar zxvf /tmp/{{ bamboo_archive }} -C {{ bamboo_catalina }} --strip-components=1
+    chown -Rf {{ bamboo_user }}:{{ bamboo_user }} {{ bamboo_catalina }}
   args:
     creates: "{{ bamboo_catalina }}/bin/start-bamboo.sh"
   notify: restart bamboo
@@ -47,30 +49,32 @@
 
 - name: copy templates
   template:
-    src="{{ item.src }}"
-    dest="{{ item.dest }}"
-    owner="{{ item.owner }}"
-    group="{{ item.group }}"
-    mode="{{ item.mode }}"
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
   with_items:
-    - { src: 'etc/init.d/bamboo.j2', dest: '/etc/init.d/bamboo',  owner: 'root', group: 'root', mode: '0755' }
-    - { src: 'usr/share/bamboo/bin/setenv.sh.j2', dest: "{{ bamboo_catalina }}/bin/setenv.sh", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: '0644' }
-    - { src: 'usr/share/bamboo/conf/server.xml.j2', dest: "{{ bamboo_catalina }}/conf/server.xml", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: '0644' }
+    - { src: "etc/init.d/bamboo.j2", dest: "/etc/init.d/bamboo",  owner: "root", group: "root", mode: "0755" }
+    - { src: "usr/share/bamboo/bin/setenv.sh.j2", dest: "{{ bamboo_catalina }}/bin/setenv.sh", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: "0644" }
+    - { src: "usr/share/bamboo/conf/server.xml.j2", dest: "{{ bamboo_catalina }}/conf/server.xml", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: "0644" }
   notify: restart bamboo
   tags: hswong3i.bamboo
 
 - name: enable service
-  service: name=bamboo enabled=yes
+  service:
+    name: bamboo
+    enabled: yes
   notify: restart bamboo
   tags: hswong3i.bamboo
 
 - name: enable incomming connection
   ufw:
-    to_port="{{ item.to_port }}"
-    proto="{{ item.proto }}"
-    rule="{{ item.rule }}"
+    to_port: "{{ item.to_port }}"
+    proto: "{{ item.proto }}"
+    rule: "{{ item.rule }}"
   with_items:
-    - { to_port: "{{ bamboo_connector_port }}", proto: 'tcp', rule: 'allow' }
-    - { to_port: "{{ bamboo_server_port }}", proto: 'tcp', rule: 'allow' }
+    - { to_port: "{{ bamboo_connector_port }}", proto: "tcp", rule: "allow" }
+    - { to_port: "{{ bamboo_server_port }}", proto: "tcp", rule: "allow" }
   notify: restart bamboo
   tags: hswong3i.bamboo
