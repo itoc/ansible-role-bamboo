@@ -6,6 +6,7 @@ bamboo_catalina: /usr/share/bamboo
 bamboo_checksum: "sha256:da6326d49dd5234319518f4b55fdfe521918931971c48bd43a48d6f6fb2717a6"
 bamboo_connector_port: 8085
 bamboo_context_path: ~
+bamboo_gid: ~
 bamboo_hash_salt: iHujah8chaeTh6oh
 bamboo_home: /var/lib/bamboo
 bamboo_jvm_maximum_memory: 1024m
@@ -15,5 +16,6 @@ bamboo_pass: yav0nooR
 bamboo_proxy_name: ~
 bamboo_scheme: ~
 bamboo_server_port: 8007
+bamboo_uid: ~
 bamboo_url: "https://downloads.atlassian.com/software/bamboo/downloads/{{ bamboo_archive }}"
 bamboo_user: bamboo
