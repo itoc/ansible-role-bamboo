@@ -72,11 +72,11 @@ Role Variables
 <td>Pass value as <code>path</code> to <a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/templates/usr/share/bamboo/conf/server.xml.j2">template</a>.</td>
 </tr>
 <tr class="even">
-<td>bamboo_uid</td>
+<td>bamboo_gid</td>
 <td>no</td>
 <td></td>
 <td></td>
-<td>Specifying the UID for shared storage. NOTE: This value should only be set once before deploying and then never changed.</td>
+<td>Specifying the GID for shared storage. NOTE: This value should only be set once before deploying and then never changed.</td>
 </tr>
 <tr class="odd">
 <td>bamboo_hash_salt</td>
@@ -146,11 +146,11 @@ Role Variables
 <td>Bamboo Apache Tomcat server port.</td>
 </tr>
 <tr class="even">
-<td>bamboo_gid</td>
+<td>bamboo_uid</td>
 <td>no</td>
 <td></td>
 <td></td>
-<td>Specifying the GID for shared storage. NOTE: This value should only be set once before deploying and then never changed.</td>
+<td>Specifying the UID for shared storage. NOTE: This value should only be set once before deploying and then never changed.</td>
 </tr>
 <tr class="odd">
 <td>bamboo_url</td>
