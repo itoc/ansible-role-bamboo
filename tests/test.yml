@@ -4,4 +4,7 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - ansible-role-bamboo
+    - role: ansible-role-bamboo
+      bamboo_hash_salt: "iHujah8chaeTh6oh"
+      bamboo_pass: "yav0nooR"
+      bamboo_user: "bamboo"
