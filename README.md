@@ -4,7 +4,6 @@ Ansible Role for Bamboo
 [![Build Status](https://travis-ci.org/pantarei/ansible-role-bamboo.svg?branch=master)](https://travis-ci.org/pantarei/ansible-role-bamboo)
 [![GitHub tag](https://img.shields.io/github/tag/pantarei/ansible-role-bamboo.svg)](https://github.com/pantarei/ansible-role-bamboo)
 [![GitHub license](https://img.shields.io/github/license/pantarei/ansible-role-bamboo.svg)](https://github.com/pantarei/ansible-role-bamboo/blob/master/LICENSE)
-[![Ansible Role](https://img.shields.io/ansible/role/5984.svg)](https://galaxy.ansible.com/detail#/role/5984)
 
 Ansible Role for Atlassian Bamboo Installation.
 
