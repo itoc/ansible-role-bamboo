@@ -80,7 +80,7 @@ Role Variables
 <tr class="odd">
 <td>bamboo_hash_salt</td>
 <td>yes</td>
-<td><a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td></td>
 <td></td>
 <td>Specific password hash salt for sha512.</td>
 </tr>
@@ -115,7 +115,7 @@ Role Variables
 <tr class="even">
 <td>bamboo_pass</td>
 <td>yes</td>
-<td>yav0nooR</td>
+<td></td>
 <td></td>
 <td>Password for Bamboo system user.</td>
 </tr>
@@ -161,7 +161,7 @@ Role Variables
 <tr class="even">
 <td>bamboo_user</td>
 <td>yes</td>
-<td>bamboo</td>
+<td></td>
 <td></td>
 <td>Username for Bamboo system user.</td>
 </tr>
@@ -176,9 +176,12 @@ No additional role dependencies.
 Example Playbook
 ----------------
 
-    - hosts: servers
+    - hosts: all
       roles:
-        - { role: hswong3i.bamboo }
+        - role: hswong3i.bamboo
+          bamboo_hash_salt: "iHujah8chaeTh6oh"
+          bamboo_pass: "yav0nooR"
+          bamboo_user: "bamboo"
 
 License
 -------
