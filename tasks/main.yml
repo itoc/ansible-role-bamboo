@@ -5,6 +5,7 @@
   group:
     name: "{{ bamboo_user }}"
     gid: "{{ bamboo_gid | default(None) or omit }}"
+  when: bamboo_pass is string and bamboo_hash_salt is string
   notify: restart bamboo
   tags: hswong3i.bamboo
 
@@ -16,6 +17,7 @@
     group: "{{ bamboo_user }}"
     uid: "{{ bamboo_uid | default(None) or omit }}"
     shell: "/bin/bash"
+  when: bamboo_pass is string and bamboo_hash_salt is string
   notify: restart bamboo
   tags: hswong3i.bamboo
 
