@@ -3,5 +3,7 @@
 
 - name: restart bamboo
   service:
-    name: "bamboo"
-    state: "restarted"
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+    - { name: "bamboo", state: "restarted" }

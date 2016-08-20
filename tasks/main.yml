@@ -35,9 +35,11 @@
 
 - name: download package
   get_url:
-    url: "{{ bamboo_url }}"
-    dest: "/tmp/{{ bamboo_archive }}"
-    checksum: "{{ bamboo_checksum }}"
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    checksum: "{{ item.checksum }}"
+  with_items:
+    - { url: "{{ bamboo_url }}", dest: "/tmp/{{ bamboo_archive }}", checksum: "{{ bamboo_checksum }}" }
   tags: hswong3i.bamboo
 
 - name: unarchive package
@@ -65,7 +67,9 @@
 
 - name: enable service
   service:
-    name: "bamboo"
-    enabled: "yes"
+    name: "{{ item.name }}"
+    enabled: "{{ item.enabled }}"
+  with_items:
+    - { name: "bamboo", enabled: "yes" }
   notify: restart bamboo
   tags: hswong3i.bamboo
