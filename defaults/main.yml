@@ -9,9 +9,9 @@ bamboo_uid: ~
 bamboo_user: ~
 
 # optional variables with default
-bamboo_archive: "atlassian-bamboo-5.12.3.1.tar.gz"
+bamboo_archive: "atlassian-bamboo-5.13.0.1.tar.gz"
 bamboo_catalina: "/usr/share/bamboo"
-bamboo_checksum: "sha256:012d40a06aeda188ccd9d84d5b520d51e92dfd5ef081d1a8a8e9a9f333e01a5b"
+bamboo_checksum: "sha256:71ef5ee007734e8c926aaaacabd7df7a9187970f869b658d3e22d0aea4b43f01"
 bamboo_connector_port: "8085"
 bamboo_context_path: ~
 bamboo_home: "/var/lib/bamboo"
