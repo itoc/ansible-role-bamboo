@@ -12,7 +12,7 @@
                 </Context>
             </Host>
             <Valve className="org.apache.catalina.valves.AccessLogValve" resolveHosts="false" pattern="%a %t &quot;%m %U%q %H&quot; %s %b %D &quot;%{Referer}i&quot; &quot;%{User-Agent}i&quot;"/>
-            <Valve className="org.apache.catalina.valves.StuckThreadDetectionValve" threshold="60" />
+            <Valve className="org.apache.catalina.valves.StuckThreadDetectionValve" threshold="60"/>
         </Engine>
     </Service>
 </Server>
