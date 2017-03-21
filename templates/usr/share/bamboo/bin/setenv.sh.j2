@@ -12,6 +12,11 @@ BAMBOO_HOME="{{ bamboo_home }}"
 JVM_SUPPORT_RECOMMENDED_ARGS="{{ bamboo_jvm_support_recommended_args }}"
 
 #
+# Byteman agent
+#JVM_SUPPORT_RECOMMENDED_ARGS="$JVM_SUPPORT_RECOMMENDED_ARGS -javaagent:../tools/byteman/lib/byteman.jar=listener:true"
+#
+
+#
 # The following 2 settings control the minimum and maximum given to the Bamboo Java virtual machine.  In larger Bamboo instances, the maximum amount will need to be increased.
 #
 JVM_MINIMUM_MEMORY="{{ bamboo_jvm_minimum_memory }}"
