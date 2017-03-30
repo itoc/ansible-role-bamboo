@@ -1,0 +1,22 @@
+---
+driver:
+  name: docker
+docker:
+  containers:
+    - name: centosapp
+      image: itoc/systemd-centos
+      image_version: latest
+      volume_mounts:
+        - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      cap_add:
+        - ALL
+      ansible_groups:
+        - group1
+verifier:
+  name: goss
+ansible:
+  playbook: tests/playbook.yml
+  sudo: False
+  group_vars:
+    all:
+      test_run: True

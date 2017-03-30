@@ -1,0 +1,19 @@
+---
+# # test file for hswong3i.bamboo
+
+# - hosts: localhost
+#   remote_user: root
+#   roles:
+#     - hswong3i.java
+#     - ansible-role-bamboo
+
+# ---
+# Role must be the name of the project as this is the folder designation that gitlab will use
+- name: Configuration Playbook
+  hosts: all
+  vars:
+    bamboo_hash_salt: "iHujah8chaeTh6oh"
+    bamboo_pass: "testing"
+    bamboo_user: "bamboo"
+  roles:
+     - ansible-role-bamboo
