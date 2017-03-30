@@ -9,7 +9,10 @@ bamboo_uid: ~
 bamboo_user: ~
 
 # optional variables with default
-
+bamboo_database: postgres
+bamboo_database_address: localhost:5432
+bamboo_database_user: ''
+bamboo_database_pass: ''
 bamboo_archive: "atlassian-bamboo-5.15.5.tar.gz"
 bamboo_catalina: "/usr/share/bamboo"
 bamboo_checksum: "sha256:b8d122ea965af817925329069ac945a024f99ce34a62b616c9db8fdd5fc89966"
