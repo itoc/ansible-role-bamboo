@@ -54,7 +54,7 @@
   with_items:
     # - { src: "etc/init.d/bamboo.j2", dest: "/etc/init.d/bamboo",  owner: "root", group: "root", mode: "0755" }
     - { src: "usr/share/bamboo/bin/setenv.sh.j2", dest: "{{ bamboo_catalina }}/bin/setenv.sh", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: "0644" }
-    # - { src: "usr/share/bamboo/conf/server.xml.j2", dest: "{{ bamboo_catalina }}/conf/server.xml", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: "0644" }
+    - { src: "usr/share/bamboo/conf/server.xml.j2", dest: "{{ bamboo_catalina }}/conf/server.xml", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: "0644" }
   # notify: restart bamboo
 
 # - name: enable service
