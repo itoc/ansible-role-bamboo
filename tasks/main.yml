@@ -68,7 +68,7 @@
     mode: "{{ item.mode }}"
   with_items:
     - { src: "postgressql.properties.j2", dest: "{{ bamboo_catalina }}/atlassian-bamboo/WEB-INF/classes/database-defaults/postgressql.properties", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: "0644" }
-  when: bamboo_database == postgres
+  when: bamboo_database == 'postgres'
   notify: restart bamboo
 
 - name: enable service
