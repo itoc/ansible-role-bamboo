@@ -53,8 +53,9 @@
     group: "{{ item.group }}"
     mode: "{{ item.mode }}"
   with_items:
+    - { src: "bamboo-init.properties.j2", dest: "{{ bamboo_catalina }}/atlassian-bamboo/WEB-INF/classes/bamboo-init.properties", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: "0644" }
     - { src: "bamboo.service.j2", dest: "/etc/systemd/system/bamboo.service",  owner: "root", group: "root", mode: "0755" }
-    - { src: "setenv.sh.j2", dest: "/etc/profile.d/setenv.sh", owner: "root", group: "root", mode: "0755" }
+    - { src: "bamboo.sh.j2", dest: "/etc/profile.d/bamboo.sh", owner: "root", group: "root", mode: "0755" }
     - { src: "server.xml.j2", dest: "{{ bamboo_catalina }}/conf/server.xml", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: "0644" }
   notify: restart bamboo
 
