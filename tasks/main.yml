@@ -58,6 +58,13 @@
     - { src: "server.xml.j2", dest: "{{ bamboo_catalina }}/conf/server.xml", owner: "{{ bamboo_user }}", group: "{{ bamboo_user }}", mode: "0644" }
   notify: restart bamboo
 
+# Refresh source files
+- name: source profile
+  become: false
+  shell: source /etc/profile
+  args:
+    executable: /bin/bash
+  notify: restart bamboo
 
 - name: copy templates
   template:
