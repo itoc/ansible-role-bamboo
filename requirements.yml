@@ -1,4 +1,6 @@
-- src: ssh://git@git.itoc.com.au:2222/itoc/java.git
-  scm: git
+# from GitHub, overriding the name and specifying a specific tag
+# Forked from geerlingguy.java for open jdk
+- src: https://github.com/itoc/ansible-role-java
+  version: "1.7.3"
+  name: java
   path: roles
-  version: "v0.0.2"

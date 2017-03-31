@@ -1,10 +1,6 @@
 Ansible Role for Bamboo
 =======================
 
-[![Build Status](https://travis-ci.org/pantarei/ansible-role-bamboo.svg?branch=master)](https://travis-ci.org/pantarei/ansible-role-bamboo)
-[![GitHub tag](https://img.shields.io/github/tag/pantarei/ansible-role-bamboo.svg)](https://github.com/pantarei/ansible-role-bamboo)
-[![GitHub license](https://img.shields.io/github/license/pantarei/ansible-role-bamboo.svg)](https://github.com/pantarei/ansible-role-bamboo/blob/master/LICENSE)
-
 Ansible Role for Atlassian Bamboo Installation.
 
 Requirements
@@ -12,7 +8,7 @@ Requirements
 
 This role require Ansible 2.0 or higher.
 
-This role was designed for Ubuntu Server 14.04 LTS and Ubuntu Server 16.04 LTS.
+This role was designed for Centos.
 
 Role Variables
 --------------
@@ -38,7 +34,7 @@ Role Variables
 <tr class="odd">
 <td>bamboo_archive</td>
 <td>yes</td>
-<td><a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td><a href="https://github.com/itoc/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td></td>
 <td>Download archive filename for cache during (re)install.</td>
 </tr>
@@ -52,7 +48,7 @@ Role Variables
 <tr class="odd">
 <td>bamboo_checksum</td>
 <td>yes</td>
-<td><a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td><a href="https://github.com/itoc/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td></td>
 <td>Download archive sha256 checksum for cache during (re)install.</td>
 </tr>
@@ -68,7 +64,7 @@ Role Variables
 <td>no</td>
 <td><code>null</code></td>
 <td></td>
-<td>Pass value as <code>path</code> to <a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/templates/usr/share/bamboo/conf/server.xml.j2">template</a>.</td>
+<td>Pass value as <code>path</code> to <a href="https://github.com/itoc/ansible-role-bamboo/blob/master/templates/usr/share/bamboo/conf/server.xml.j2">template</a>.</td>
 </tr>
 <tr class="even">
 <td>bamboo_gid</td>
@@ -108,7 +104,7 @@ Role Variables
 <tr class="odd">
 <td>bamboo_jvm_support_recommended_args</td>
 <td>no</td>
-<td><a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
+<td><a href="https://github.com/itoc/ansible-role-bamboo/blob/master/defaults/main.yml">defaults/main.yml</a></td>
 <td></td>
 <td>Atlassian Support recommended JVM arguments.</td>
 </tr>
@@ -124,7 +120,7 @@ Role Variables
 <td>no</td>
 <td><code>null</code></td>
 <td></td>
-<td>Pass value as <code>proxyName</code> to <a href="https://github.com/pantarei/ansible-role-bamboo/blob/master/templates/usr/share/bamboo/conf/server.xml.j2">template</a>.</td>
+<td>Pass value as <code>proxyName</code> to <a href="https://github.com/itoc/ansible-role-bamboo/blob/master/templates/usr/share/bamboo/conf/server.xml.j2">template</a>.</td>
 </tr>
 <tr class="even">
 <td>bamboo_scheme</td>
@@ -178,7 +174,7 @@ Example Playbook
 
     - hosts: all
       roles:
-        - role: hswong3i.bamboo
+        - role: bamboo
           bamboo_hash_salt: "iHujah8chaeTh6oh"
           bamboo_pass: "yav0nooR"
           bamboo_user: "bamboo"
@@ -186,13 +182,5 @@ Example Playbook
 License
 -------
 
--   Code released under [MIT](https://github.com/pantarei/ansible-role-bamboo/blob/master/LICENSE)
+-   Code released under [MIT](https://github.com/itoc/ansible-role-bamboo/blob/master/LICENSE)
 -   Docs released under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)
-
-Author Information
-------------------
-
--   Wong Hoi Sing Edison
-    -   <a href="https://twitter.com/hswong3i" class="uri" class="uri">https://twitter.com/hswong3i</a>
-    -   <a href="https://github.com/hswong3i" class="uri" class="uri">https://github.com/hswong3i</a>
-

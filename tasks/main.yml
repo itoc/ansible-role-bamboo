@@ -44,6 +44,8 @@
   args:
     creates: "{{ bamboo_catalina }}/bin/start-bamboo.sh"
   notify: restart bamboo
+  tags:
+  - skip_ansible_lint
 
 - name: copy templates
   template:
@@ -79,6 +81,8 @@
     executable: /bin/bash
   notify: restart bamboo
   when: profile.changed
+  tags:
+  - skip_ansible_lint
 
 - name: copy templates
   template:
