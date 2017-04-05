@@ -6,6 +6,8 @@
     bamboo_hash_salt: "iHujah8chaeTh6oh"
     bamboo_pass: "testing"
     bamboo_user: "bamboo"
+    java_packages:
+      - java-1.8.0-openjdk
   roles:
      - java
      - ansible-role-bamboo
